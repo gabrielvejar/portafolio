@@ -1,5 +1,23 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, SendIcon } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
+import { useForm } from '@formspree/react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -8,14 +26,8 @@ export function Contact() {
     subject: '',
     message: ''
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aquí implementarías la lógica para enviar el formulario
-    console.log('Formulario enviado:', formData);
-    // Resetear el formulario
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  const [state, handleSubmit, reset] = useForm("mjkodnjk");
+  const [open, setOpen] = React.useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -24,6 +36,18 @@ export function Contact() {
     });
   };
 
+  const handleClose = () => {
+    setOpen(false);
+    reset();
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setOpen(true);
+    }
+  }, [state.succeeded])
+  
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
@@ -246,6 +270,26 @@ export function Contact() {
           </div>
         </div>
       </div>
+
+      <Dialog
+        open={open}
+        slots={{
+          transition: Transition,
+        }}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Genial!"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Tu mensaje ha sido enviado correctamente. Me pondré en contacto contigo lo antes posible.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Aceptar</Button>
+        </DialogActions>
+      </Dialog>
     </section>
   );
 }
