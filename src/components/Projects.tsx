@@ -1,12 +1,18 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import vlc from '../../assets/vlc.png';
+import fintesk from '../../assets/fintesk.png';
+import dino from '../../assets/dino.png';
+import ilusia from '../../assets/ilusia.png';
+import ciudad from '../../assets/ciudad.jpg';
+import rickMorty from '../../assets/rickandmorty.png';
 
 export function Projects() {
   const projects = [
     {
       title: 'Viva Leer Copec',
       description: 'Plataforma de Viva Leer Copec, programa de fomento lector implementado por Copec desde 2011, comprometidos con la lectura en Chile.',
-      image: '/assets/vlc.png',
+      image: vlc,
       technologies: ['React', 'Node.js', 'TailwindCSS', 'Wordpress', 'TypeScript'],
       liveUrl: 'https://vivaleercopec.cl/',
       featured: true
@@ -14,7 +20,7 @@ export function Projects() {
     {
       title: 'Fintesk CRM',
       description: 'Un Gestión de Relaciones con Clientes (Customer Relationship Management) enfocado en las PYMES de Chile y Latinoamérica, con funcionalidades avanzadas de gestión de clientes y ventas.',
-      image: '/assets/fintesk.png',
+      image: fintesk,
       technologies: ['React', 'Python', 'MongoDB', 'Redux', 'Cypress'],
       liveUrl: 'https://fintesk.com/',
       featured: true
@@ -22,7 +28,7 @@ export function Projects() {
     {
       title: 'Dinos Dinosaurio',
       description: 'Viva Leer Copec. Cuento digital para niños, con animaciones, narración de voz y actividades interactivas, diseñado para fomentar la lectura y la creatividad.',
-      image: '/assets/dino.png',
+      image: dino,
       technologies: ['GSAP', 'Javascript', 'CSS', 'HTML'],
       liveUrl: 'https://vivaleercopec.cl/cuentos/cuento/dinos-dinosaurio/',
       featured: false
@@ -30,7 +36,7 @@ export function Projects() {
     {
       title: 'Ilusia Store',
       description: 'Tienda online de productos de todo tipo, con un enfoque en la experiencia del usuario y el diseño atractivo.',
-      image: '/assets/ilusia.png',
+      image: ilusia,
       technologies: ['Angular', 'Firebase', 'Tailwind CSS'],
       liveUrl: 'https://angular-signal-store.vercel.app/',
       featured: false
@@ -38,15 +44,15 @@ export function Projects() {
     {
       title: 'La Ciudad en que Nací',
       description: 'Viva Leer Copec. Cuento digital para niños, con animaciones, narración de voz y actividades interactivas, diseñado para fomentar la lectura y la creatividad.',
-      image: '/assets/ciudad.jpg',
+      image: ciudad,
       technologies: ['GSAP', 'Javascript', 'CSS', 'HTML'],
-      liveUrl: '#',
+      liveUrl: 'https://vivaleercopec.cl/cuentos/cuento/la-ciudad-en-que-naci/',
       featured: false
     },
     {
       title: 'Rick and Morty 100 years',
       description: 'Aplicación web que muestra información de los personajes, episodios y ubicaciones de la serie Rick and Morty, con un diseño moderno y responsivo.',
-      image: '/assets/rickandmorty.png',
+      image: rickMorty,
       technologies: ['Next.js', 'Typescript', 'TailwindCSS'],
       liveUrl: 'https://rickandmortynext13.vercel.app/',
       featured: false
