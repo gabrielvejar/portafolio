@@ -38,7 +38,7 @@ export function About() {
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p className="text-lg">
                   Soy un desarrollador full stack apasionado por crear soluciones digitales 
-                  que impacten positivamente en la vida de las personas. Con más de 8 años 
+                  que impacten positivamente en la vida de las personas. Con más de 9 años 
                   de experiencia en el desarrollo web, he trabajado con startups y empresas 
                   consolidadas para llevar sus visiones al mundo digital.
                 </p>
